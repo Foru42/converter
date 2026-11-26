@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bar Labea · Canciones</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" th:href="@{/styles/cancion.css}">
+</head>
+
+<body> 
+
+    <main class="library">
+
+        <section class="converter">
+            <form class="converter__form" th:action="@{/canciones/mp3}" method="post">
+                <label for="ytUrl">YouTube a MP3</label>
+                <div class="converter__row">
+                    <input type="url" id="ytUrl" name="url" required autocomplete="off"
+                        placeholder="https://www.youtube.com/watch?v=...">
+                    <button class="btn btn--primary" type="submit">Convertir</button>
+                </div>
+                <p class="converter__msg is-error" th:if="${f_mensaje != null}" th:text="${f_mensaje}">Mensaje</p>
+            </form>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
